@@ -32,8 +32,13 @@ public class MainActivity extends AppCompatActivity {
         lvHolidays.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-               // Intent intent = new Intent(getBaseContext());
+                Intent i = new Intent(MainActivity.this,SecondActivity.class);
+                if(alHolidays.get(position).equalsIgnoreCase("secular")){
+                    i.putExtra("isSecular",true);
+                }else{
+                    i.putExtra("isSecular",false);
+                }
+                startActivity(i);
 
             }
         });
